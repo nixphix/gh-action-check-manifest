@@ -2,13 +2,13 @@ name: "Check Manifest"
 
 on:
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '*/50 * * * *'
 
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - run: pip3 install check-manifest scipy cython
+      - run: pip3 install check-manifest scipy cython & check-mainfest -v
         shell: bash
-      - run: check-manifest -v
+      - run: pip3 freeze
         shell: bash
